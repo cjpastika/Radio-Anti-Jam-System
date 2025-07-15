@@ -84,10 +84,10 @@ void loop() {
     if (radio.isAckPayloadAvailable()) {
       char ack[32] = "";
       radio.read(&ack, sizeof(ack));
-      Serial.print("✅ ACK payload received: ");
+      //Serial.print("✅ ACK payload received: ");
       Serial.println(ack);
     } else {
-      Serial.println("⚠️ No ACK payload received");
+      //Serial.println("⚠️ No ACK payload received");
     }
 
     index = (index + 1) % 12;
