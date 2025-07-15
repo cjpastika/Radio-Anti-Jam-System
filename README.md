@@ -31,7 +31,7 @@ IRQ	Not connected (optional)
 
 Important: Use 3.3V only. NRF24L01+ modules can be damaged by 5V.
 
-# Frequency Hopping System Assembly:
+# System Assembly:
 Connect each NRF24 module to each ESP32 board using the table above.
 Solder or place a 10 µF capacitor between VCC and GND near each NRF24 module to reduce noise.
 Connect both ESP32 boards to your computer using USB cables.
@@ -43,11 +43,30 @@ Upload the transmitter sketch to one ESP32.
 Upload the receiver sketch to the second ESP32.
 Open Serial Monitor for both boards (115200 baud or whatever you set in code).
 Check that they sync up and start exchanging messages while hopping across channels.
+Finished module photo:
+
+![IMG_4045](https://github.com/user-attachments/assets/03f65b23-f2ca-4e71-b017-b52973412a27)
 
 # Frequency Hopping Control
+All of the files for this mode are in the FH folder
 You can adjust the hopping channels in a hopTable[] array in your code.
 Hopping speed can be changed with a delay or timer constant (for example, hopIntervalMs).
 You can modify or add serial commands to change channels or parameters live from your computer.
+Here is what the serial monitor should look like:
+
+<img width="3455" height="2036" alt="fh no jam" src="https://github.com/user-attachments/assets/18146cdb-f489-443a-add5-34d1c4183ed5" />
+
+# Manual Control
+For easier testing of the jammer I have included a version of the code in which the radio stays on one frequency
+All of the files for the full system in this mode are in the Manual folder
+Here is what the serial monitor should look like when it is not being jammed:
+
+<img width="3455" height="2036" alt="manual no jam" src="https://github.com/user-attachments/assets/e33c7eac-7a5e-42c1-83ae-ef937c25ea86" />
+
+Here is what it looks like when I switched the jammer on about halfway through:
+
+<img width="3455" height="2037" alt="manual jammed" src="https://github.com/user-attachments/assets/46e5f696-ccf2-4a63-9eb7-711e59fae920" />
+
 
 # Jammer Assembly
 Use another ESP32 and NRF24 module wired the same way.
